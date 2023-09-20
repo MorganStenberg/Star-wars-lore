@@ -7,6 +7,9 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
     background-image: url(../images/space_background.png);
     color: #FFE81F;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 #header {
@@ -17,6 +20,20 @@ body {
     -webkit-text-fill-color: #000000;
     margin: 10px 10px;
     text-align: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
+/* Footer styling - inspired by answer on Stackoverflow, link in credits*/
+footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
 }
 
 
