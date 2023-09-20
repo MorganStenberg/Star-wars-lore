@@ -47,6 +47,13 @@ body {
     font-weight: normal;
 }
 
+#game-area {
+    background-color: #1ab0b3;
+    width: 600px;
+    max-width: 90%;
+    margin: 10px auto;
+}
+
 /* Footer styling - inspired by answer on Stackoverflow, link in credits*/
 footer {
     display: flex;
