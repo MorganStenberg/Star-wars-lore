@@ -65,6 +65,12 @@ body {
     border-radius: 5px;
 }
 
+/*Syling for question area */
+#questions {
+    padding-top: 10px;
+    text-align: center;
+}
+
 /* Styling for the answer buttons - credit to "MDN Repeat" on how to use grid-template-columns*/
 #answer-buttons {
     display: grid;
@@ -93,6 +99,7 @@ body {
     font-size: 1rem;
 }
 
+/*Styling for the score counter area*/ 
 #score-counter {
     display: flex;
     flex-direction: row;
