@@ -14,7 +14,7 @@ body {
     color: #FFE81F;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 97vh;
 }
 
 
@@ -113,6 +113,13 @@ footer {
     display: flex;
     justify-content: flex-end;
     margin-top: auto;
+    margin-right: 5px;
+    gap: 5px;
+}
+
+footer > a, p {
+    color: #1da9b9;
+    background-color: #000000;
 }
 
 
