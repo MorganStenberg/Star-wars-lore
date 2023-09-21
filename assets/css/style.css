@@ -93,6 +93,13 @@ body {
     font-size: 1rem;
 }
 
+#score-counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+    gap: 5px;
+}
 
 /* Footer styling - inspired by answer on Stackoverflow, link in credits*/
 footer {
