@@ -47,11 +47,32 @@ body {
     font-weight: normal;
 }
 
+/* Styling for the game area container */ 
 #game-area {
-    background-color: #1ab0b3;
+    background-color: #000000;
     width: 600px;
     max-width: 90%;
     margin: 10px auto;
+    border: 5px solid;
+    border-radius: 5px;
+}
+
+/* Styling for the answer buttons - credit to "MDN Repeat" on how to use grid-template-columns*/
+#answer-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 10px 10px;
+    padding: 5px;
+}
+
+.btn-answer {
+    color: #1da9b9;
+    background-color: #000000;
+    border: 3px solid;
+    margin: 10px 5px;
+    padding: 10px;
+    border-radius: 12px;
 }
 
 /* Footer styling - inspired by answer on Stackoverflow, link in credits*/
