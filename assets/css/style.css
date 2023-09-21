@@ -75,6 +75,17 @@ body {
     border-radius: 12px;
 }
 
+#start-game-btn {
+    color: #1da9b9;
+    background-color: #000000;
+    border: 5px solid;
+    margin: 10px 5px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+
 /* Footer styling - inspired by answer on Stackoverflow, link in credits*/
 footer {
     display: flex;
