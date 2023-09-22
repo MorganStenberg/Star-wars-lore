@@ -3,8 +3,16 @@ const startButton = document.getElementById('start-btn')
 const welcomeText = document.getElementById('welcome-text')
 const gameArea = document.getElementById('game-area')
 const nextQuestionButton = document.getElementById('next-btn')
+let startSound = new Audio('assets/audio/lightsaber.mp3')
 
-startButton.addEventListener('click', startQuiz)
+/* 
+Event listener for start button, calls two functions
+for starting the quiz and sound effect.
+*/
+startButton.addEventListener('click', function() {
+    startQuiz()
+    playSound()
+})
 
 /** 
  * Function to start the quiz itself, and hide welcome text and start button
@@ -16,10 +24,15 @@ function startQuiz () {
     gameArea.classList.remove('hide');
     nextQuestionButton.classList.remove('hide');
     displayNexQuestion();
+
+}
+
+function playSound () {
+    startSound.play()
 }
 
 function displayNexQuestion() {
-    
+
 }
 
 
