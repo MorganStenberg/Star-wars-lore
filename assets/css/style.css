@@ -95,7 +95,7 @@ body {
     border-color: #2BCBDE;
 }
 
-#start-game-btn {
+.start-next-btn {
     color: #1da9b9;
     background-color: #000000;
     border: 5px solid;
@@ -105,7 +105,7 @@ body {
     font-size: 1rem;
 }
 
-#start-game-btn:hover {
+.start-next-btn:hover {
     border-color:#2BCBDE;
 }
 
