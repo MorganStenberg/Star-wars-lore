@@ -1,6 +1,7 @@
+/*
 .hide {
     display: none;
-}
+} */
 
 * {
     margin: 0;
@@ -89,6 +90,10 @@ body {
     border-radius: 12px;
 }
 
+.btn-answer:hover {
+    border-color: #2BCBDE;
+}
+
 #start-game-btn {
     color: #1da9b9;
     background-color: #000000;
@@ -97,6 +102,10 @@ body {
     padding: 10px;
     border-radius: 10px;
     font-size: 1rem;
+}
+
+#start-game-btn:hover {
+    border-color:#2BCBDE;
 }
 
 /*Styling for the score counter area*/ 
