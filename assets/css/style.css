@@ -1,7 +1,6 @@
-/*
 .hide {
     display: none;
-} */
+}
 
 * {
     margin: 0;
@@ -49,6 +48,7 @@ body {
     background-color: #000000;
     border: 5px solid;
     border-radius: 5px;
+    box-shadow: 0 0 5px 2px;
 }
 
 #welcome-text h2 {
@@ -64,6 +64,7 @@ body {
     margin: 10px auto;
     border: 5px solid;
     border-radius: 5px;
+    box-shadow: 0 0 5px 2px;
 }
 
 /*Syling for question area */
