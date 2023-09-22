@@ -117,7 +117,7 @@ footer {
     gap: 5px;
 }
 
-footer > a, p {
+.footer {
     color: #1da9b9;
     background-color: #000000;
 }
