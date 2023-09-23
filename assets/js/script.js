@@ -7,6 +7,7 @@ const startSound = new Audio('assets/audio/lightsaber.mp3')
 const questionElement = document.getElementById('questions')
 const answerButtons = document.getElementById('answer-buttons')
 const questionNr = document.getElementById('number-of-questions')
+const scoreCount = document.getElementById('score')
 
 /* 
 Event listener for start button, calls two functions
@@ -52,7 +53,22 @@ function displayQuestion() {
         button.innerHTML = answer.text;
         button.classList.add('btn-answer');
         answerButtons.appendChild(button);
+        button.addEventListener("click", selectedAnswer)
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
     })
+}
+
+// Function to check if answer is correct and increment score 
+function selectedAnswer(event) {
+    const selectedBtn = event.target
+    const correctAnswer = selectedBtn.dataset.correct
+    if (correctAnswer) {
+        score++;
+        scoreCount.innerText = score;
+    }
+    
 }
 
 
