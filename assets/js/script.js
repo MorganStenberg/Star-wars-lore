@@ -20,7 +20,7 @@ startButton.addEventListener('click', function() {
 
 nextQuestionButton.addEventListener('click', function() {
     currentQuestionIndex++
-    displayQuestion()
+    nextQuestion()
 })
 
 
@@ -49,9 +49,9 @@ function playSound () {
 // Function to get a question from question array and calculate number of questions
 function displayQuestion() {
     let currentQuestion = questions[currentQuestionIndex];
-    let numberOfQuestion = currentQuestionIndex + 1;
+    
     questionElement.textContent = currentQuestion.question;
-    questionNr.textContent = " " + numberOfQuestion;
+    
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -65,7 +65,9 @@ function displayQuestion() {
     })
 }
 
-// Function to check if answer is correct and increment score 
+/* Function to check if answer is correct, increment score 
+and calculate total number of questions 
+*/
 function selectedAnswer(event) {
     const selectedBtn = event.target
     const correctAnswer = selectedBtn.dataset.correct
@@ -74,6 +76,18 @@ function selectedAnswer(event) {
         scoreCount.innerText = score;
     }
     nextQuestionButton.classList.remove('hide');
+    let numberOfQuestion = currentQuestionIndex + 1;
+    questionNr.textContent = " " + numberOfQuestion;
+}
+
+
+function nextQuestion () {
+    displayQuestion()
+    resetState()
+}
+
+function resetState () {
+    nextQuestionButton.classList.add('hide');
     
 }
 
