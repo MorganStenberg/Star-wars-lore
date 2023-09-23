@@ -18,6 +18,11 @@ startButton.addEventListener('click', function() {
     playSound()
 })
 
+nextQuestionButton.addEventListener('click', function() {
+    currentQuestionIndex++
+    displayQuestion()
+})
+
 
 let currentQuestionIndex = 0; 
 let score = 0;
@@ -68,6 +73,7 @@ function selectedAnswer(event) {
         score++;
         scoreCount.innerText = score;
     }
+    nextQuestionButton.classList.remove('hide');
     
 }
 
