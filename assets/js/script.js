@@ -29,7 +29,6 @@ function startQuiz () {
     welcomeText.classList.add('hide');
     startButton.classList.add('hide');
     gameArea.classList.remove('hide');
-    nextQuestionButton.classList.remove('hide');
     currentQuestionIndex = 0;
     score = 0;
     displayQuestion();
