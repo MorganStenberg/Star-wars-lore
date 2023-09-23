@@ -5,7 +5,7 @@ const gameArea = document.getElementById('game-area')
 const nextQuestionButton = document.getElementById('next-btn')
 const startSound = new Audio('assets/audio/lightsaber.mp3')
 const questionElement = document.getElementById('questions')
-const answerButtons = document.getElementsByClassName('btn-answer')
+const answerButtons = document.getElementById('answer-buttons')
 const questionNr = document.getElementById('number-of-questions')
 
 /* 
@@ -41,12 +41,19 @@ function playSound () {
     startSound.play()
 }
 
-
+// Function to get a question from question array and calculate number of questions
 function displayQuestion() {
     let currentQuestion = questions[currentQuestionIndex];
     let numberOfQuestion = currentQuestionIndex + 1;
     questionElement.textContent = currentQuestion.question;
     questionNr.textContent = " " + numberOfQuestion;
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add('btn-answer');
+        answerButtons.appendChild(button);
+    })
 }
 
 
