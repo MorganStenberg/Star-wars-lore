@@ -32,7 +32,7 @@ function startQuiz () {
     nextQuestionButton.classList.remove('hide');
     currentQuestionIndex = 0;
     score = 0;
-    displayNexQuestion();
+    displayQuestion();
 
 }
 
@@ -42,7 +42,7 @@ function playSound () {
 }
 
 
-function displayNexQuestion() {
+function displayQuestion() {
     let currentQuestion = questions[currentQuestionIndex];
     let numberOfQuestion = currentQuestionIndex + 1;
     questionElement.textContent = currentQuestion.question;
@@ -59,6 +59,26 @@ const questions = [
         { text: "Alderaan", correct: false }, 
         { text: "Naboo", correct: false }, 
         { text: "Coruscant", correct: false }, 
+         ]
+     },
+     { 
+        question: "What type of ship does Boba Fett fly in the original trilogy?", 
+    
+        answers: [ 
+        { text: "Slave I", correct: true }, 
+        { text: "Imperial Shuttle", correct: false }, 
+        { text: "TIE Fighter", correct: false },
+        { text: "X-wing Starfighter", correct: false },             
+         ]
+     },
+     { 
+        question: "What is the name of the ancient Sith home world?", 
+    
+        answers: [ 
+        { text: "Korriban", correct: true }, 
+        { text: "Dromund Kaas", correct: false }, 
+        { text: "Malachor V", correct: false }, 
+        { text: "Exegol", correct: false }, 
          ]
      },
     ]    
