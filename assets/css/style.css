@@ -113,6 +113,17 @@ body {
     border-color:#2BCBDE;
 }
 
+/* Styling for correct and incorrect answer */ 
+.correct {
+    background-color: #2FF924;
+    color: #000000;
+}
+
+.incorrect {
+    background-color: #EB212E;
+    color: #000000;
+}
+
 /*Styling for the score counter area*/ 
 #score-counter {
     display: flex;

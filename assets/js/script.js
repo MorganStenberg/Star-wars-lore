@@ -74,20 +74,34 @@ function selectedAnswer(event) {
     if (correctAnswer) {
         score++;
         scoreCount.innerText = score;
+        selectedBtn.classList.add('correct')
+    } else {
+        selectedBtn.classList.add('incorrect')
     }
     nextQuestionButton.classList.remove('hide');
     let numberOfQuestion = currentQuestionIndex + 1;
     questionNr.textContent = " " + numberOfQuestion;
 }
 
+/**
+ * Function to call the right functions for resetting game area and displaying next question
+ */
 
 function nextQuestion () {
-    displayQuestion()
     resetState()
+    displayQuestion()
 }
+
+/**
+ * Function to reset game area for next question. Removes answer buttons from previous question 
+ * and hides the next button. Credit for how to remove answer buttons from https://www.youtube.com/watch?v=PBcqGxrr9g8
+ */
 
 function resetState () {
     nextQuestionButton.classList.add('hide');
+    while(answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
     
 }
 
