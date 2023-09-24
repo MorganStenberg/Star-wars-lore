@@ -146,13 +146,13 @@ function endQuiz () {
  */
 function result () {
     if (score === 10) {
-        return "placeholder 10 score"
+        console.log("placeholder 10 score") 
     } else if (score < 10 && score > 6) {
-        return "placeholder 7-9 score"
+        console.log("placeholder 7-9 score") 
     } else if (score < 7 && score > 3) {
-        return "placeholder 6-4 score"
+        console.log("placeholder 4-6 score") 
     } else if (score <= 3) {
-        return "placeholder 0-3 score"
+        console.log("placeholder 0-3 score") 
     }
         
 }
