@@ -8,6 +8,7 @@ const questionElement = document.getElementById('questions')
 const answerButtons = document.getElementById('answer-buttons')
 const questionNr = document.getElementById('number-of-questions')
 const scoreCount = document.getElementById('score')
+const resultText = document.getElementById('result-text')
 
 /* 
 Event listener for start button, calls two functions
@@ -132,7 +133,10 @@ function resetState () {
  */
 
 function endQuiz () {
-
+    gameArea.classList.add('hide');
+    nextQuestionButton.classList.add('hide');
+    resultText.classList.remove('hide');
+    result();
 }
 
 
