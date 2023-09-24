@@ -65,9 +65,9 @@ function displayQuestion() {
     })
 }
 
-/* Function to check if answer is correct, increment score 
-and calculate total number of questions 
-*/
+/** Function to check if answer is correct, increment score 
+and calculate total number of questions. Also callin function to disable answer buttons. 
+*/ 
 function selectedAnswer(event) {
     const selectedBtn = event.target
     const correctAnswer = selectedBtn.dataset.correct
@@ -81,6 +81,21 @@ function selectedAnswer(event) {
     nextQuestionButton.classList.remove('hide');
     let numberOfQuestion = currentQuestionIndex + 1;
     questionNr.textContent = " " + numberOfQuestion;
+    showCorrectAnswer();
+}
+
+
+/**
+ * Function to disable answerbutton when one answer is selected, also callin function 
+ * to highlight the correct answer if wrong one is picked. Credit to https://www.youtube.com/watch?v=PBcqGxrr9g8 
+ */
+function showCorrectAnswer() {
+Array.from(answerButtons.children).forEach(button => {
+    if (button.dataset.correct === "true") {
+        button.classList.add("correct");
+    }
+    button.disabled = true; 
+})
 }
 
 /**

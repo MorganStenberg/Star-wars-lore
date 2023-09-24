@@ -117,11 +117,15 @@ body {
 .correct {
     background-color: #2FF924;
     color: #000000;
+    border: 3px solid;
+    border-color: #1da9b9;
 }
 
 .incorrect {
     background-color: #EB212E;
     color: #000000;
+    border: 3px solid;
+    border-color: #1da9b9;
 }
 
 /*Styling for the score counter area*/ 
