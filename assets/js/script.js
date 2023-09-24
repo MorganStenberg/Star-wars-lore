@@ -66,7 +66,8 @@ function displayQuestion() {
 }
 
 /** Function to check if answer is correct, increment score 
-and calculate total number of questions. Also callin function to disable answer buttons. 
+and calculate total number of questions. Also callin function to show correct answer 
+and disable answer buttons. 
 */ 
 function selectedAnswer(event) {
     const selectedBtn = event.target
@@ -99,12 +100,17 @@ Array.from(answerButtons.children).forEach(button => {
 }
 
 /**
- * Function to call the right functions for resetting game area and displaying next question
+ * Function to call the right functions for resetting game area and 
+ * displaying next question. If max nr of question reached 
+ * call results function
  */
 
 function nextQuestion () {
-    resetState()
-    displayQuestion()
+    if (currentQuestionIndex < 10) {
+        resetState()
+        displayQuestion()
+    } else { endQuiz()
+    } 
 }
 
 /**
@@ -118,6 +124,33 @@ function resetState () {
         answerButtons.removeChild(answerButtons.firstChild);
     }
     
+}
+
+/**
+ * Function to end the quiz after max question reached
+ * and display result to user
+ */
+
+function endQuiz () {
+
+}
+
+
+/** 
+ * Function to display results, depending on nr of 
+ * correct answers will show different quote to user
+ */
+function result () {
+    if (score === 10) {
+        return "placeholder 10 score"
+    } else if (score < 10 && score > 6) {
+        return "placeholder 7-9 score"
+    } else if (score < 7 && score > 3) {
+        return "placeholder 6-4 score"
+    } else if (score <= 3) {
+        return "placeholder 0-3 score"
+    }
+        
 }
 
 
