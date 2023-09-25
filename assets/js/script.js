@@ -43,10 +43,13 @@ retryButton.addEventListener('click', function() {
 let currentQuestionIndex = 0; 
 let score = 0;
 let numberOfQuestion = 0;
+let randomizedQuestion; 
 
 /** 
- * Function to start the quiz itself, and hide welcome text and start button
- * calls displayQuestion function
+ * Function to start the quiz itself, and hide welcome text and start button.
+ * Calls displayQuestion function and randomizes the questions, 
+ * credit for using sort method to randomize: 
+ * https://stackdiary.com/tutorials/how-to-randomly-shuffle-a-javascript-array/
  */
 function startQuiz () {
     welcomeText.classList.add('hide');
@@ -54,6 +57,7 @@ function startQuiz () {
     gameArea.classList.remove('hide');
     currentQuestionIndex = 0;
     score = 0;
+    randomizedQuestion = questions.sort(() => Math.random() - 0.5);
     displayQuestion();
 
 }
@@ -69,7 +73,7 @@ function playSound () {
  * and calls function for selecting answer.
  *  */ 
 function displayQuestion() {
-    let currentQuestion = questions[currentQuestionIndex];
+    let currentQuestion = randomizedQuestion[currentQuestionIndex];
     
     questionElement.textContent = currentQuestion.question;
     
