@@ -11,12 +11,15 @@ const scoreCount = document.getElementById('score')
 const resultArea = document.getElementById('result-text')
 const retryButton = document.getElementById('retry-btn')
 
-
+const bestResultText = "The force is strong with you!"
+const goodResultText = "Great promise in you I feel"
+const mediumResultText = "Much to learn young padawan has"
+const worstResultText = "It's a trap!"
 
 let currentQuestionIndex = 0; 
 let score = 0;
 let numberOfQuestion = 0;
-let randomizedQuestion; 
+let randomizedQuestions; 
 
 /** 
  * Function to start the quiz itself, and hide welcome text and start button.
@@ -30,7 +33,7 @@ function startQuiz () {
     gameArea.classList.remove('hide');
     currentQuestionIndex = 0;
     score = 0;
-    randomizedQuestion = questions.sort(() => Math.random() - 0.5);
+    randomizedQuestions = questions.sort(() => Math.random() - 0.5);
     playSound ()
     displayQuestion();
 
@@ -47,7 +50,7 @@ function playSound () {
  * and calls function for selecting answer.
  *  */ 
 function displayQuestion() {
-    let currentQuestion = randomizedQuestion[currentQuestionIndex];
+    let currentQuestion = randomizedQuestions[currentQuestionIndex];
     
     questionElement.textContent = currentQuestion.question;
     
@@ -57,7 +60,7 @@ function displayQuestion() {
         button.innerHTML = answer.text;
         button.classList.add('btn-answer');
         answerButtons.appendChild(button);
-        button.addEventListener("click", selectedAnswer)
+        button.addEventListener("click", onUserSelection)
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
@@ -68,7 +71,7 @@ function displayQuestion() {
 and calculate total number of questions. Also callin function to show correct answer 
 and disable answer buttons. 
 */ 
-function selectedAnswer(event) {
+function onUserSelection(event) {
     const selectedBtn = event.target
     const correctAnswer = selectedBtn.dataset.correct
     if (correctAnswer) {
@@ -107,7 +110,7 @@ Array.from(answerButtons.children).forEach(button => {
 function nextQuestion () {
     currentQuestionIndex++;
     if (currentQuestionIndex < 10) {
-        resetState();
+        resetQuestion();
         displayQuestion();
     } else { 
         endQuiz();
@@ -119,7 +122,7 @@ function nextQuestion () {
  * and hides the next button. Credit for how to remove answer buttons from https://www.youtube.com/watch?v=PBcqGxrr9g8
  */
 
-function resetState () {
+function resetQuestion () {
     nextQuestionButton.classList.add('hide');
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
@@ -137,19 +140,14 @@ function endQuiz () {
     nextQuestionButton.classList.add('hide');
     resultArea.classList.remove('hide');
     retryButton.classList.remove('hide');
-    result();
+    renderResult();
 }
-
-const bestResultText = "The force is strong with you!"
-const goodResultText = "Great promise in you I feel"
-const mediumResultText = "Much to learn young padawan has"
-const worstResultText = "It's a trap!"
 
 /** 
  * Function to display results, depending on nr of 
  * correct answers will show different quote to user
  */
-function result () {
+function renderResult () {
     const resultText = document.createElement("p")
     const resultScore = document.createElement("p")
     resultScore.innerText = "You scored " + score + " of 10";
@@ -175,7 +173,7 @@ function result () {
  * Resets score, question index and question number. 
  * Removes answer buttons and result text. Calls start quiz function. 
  */
-function resetQuiz () {
+function restartQuiz () {
     score = 0;
     currentQuestionIndex = 0;
     questionNr.innerText = " " + currentQuestionIndex;
@@ -344,21 +342,21 @@ const questions = [
  */
 document.addEventListener("DOMContentLoaded", function () {
 
-/**
-* Listens to start game event and starts the quiz
-*/
-startButton.addEventListener("click", startQuiz);
+    /**
+    * Listens to start game event and starts the quiz
+    */
+    startButton.addEventListener("click", startQuiz);
 
-// Handles click for "Next Question" button.
-nextQuestionButton.addEventListener('click', nextQuestion);
+    // Handles click for "Next Question" button.
+    nextQuestionButton.addEventListener('click', nextQuestion);
     
-/* 
-Event listener for retry quiz button. Calls resetquiz function. 
-Hides result area and retry button
-*/
-retryButton.addEventListener('click', function() {
-    resetQuiz()
-    resultArea.classList.add('hide')
-    retryButton.classList.add('hide')
-});
+    /* 
+    Event listener for retry quiz button. Calls resetquiz function. 
+    Hides result area and retry button
+    */
+    retryButton.addEventListener('click', function() {
+        restartQuiz()
+        resultArea.classList.add('hide')
+        retryButton.classList.add('hide')
+    });
 });
