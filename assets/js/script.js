@@ -10,12 +10,14 @@ const questionNr = document.getElementById('number-of-questions')
 const scoreCount = document.getElementById('score')
 const resultArea = document.getElementById('result-area')
 const result = document.getElementById('result')
+const resultText = document.getElementById('result-text')
+const resultScore = document.getElementById('result-score')
 const retryButton = document.getElementById('retry-btn')
 
-const bestResultText = "The force is strong with you!"
-const goodResultText = "Great promise in you I feel"
-const mediumResultText = "Much to learn young padawan has"
-const worstResultText = "It's a trap!"
+const bestResultText = "You are the chosen one. You will bring balance to the force"
+const goodResultText = "This is the way!"
+const mediumResultText = "Much to learn.. You still have"
+const worstResultText = "Do or do not.. There is no try"
 
 const maxQuestion = 10; 
 
@@ -149,8 +151,6 @@ function endQuiz () {
  * Renders result to user. Displays different texts depending on range of score
  */
 function renderResult () {
-    const resultText = document.createElement("p")
-    const resultScore = document.createElement("p")
     resultScore.textContent = `You scored ${score} of ${maxQuestion}`;
 
     // calculating the score range
@@ -165,8 +165,6 @@ function renderResult () {
     } else if (scorePercentage < 40) {
         resultText.textContent =  worstResultText; 
     }
-    result.appendChild(resultScore)
-    result.appendChild(resultText)
 }
 
 /**
