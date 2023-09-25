@@ -174,7 +174,6 @@ function renderResult () {
 function restartQuiz () {
     score = 0;
     currentQuestionIndex = 0;
-    questionNr.textContent = " " + currentQuestionIndex;
     scoreCount.textContent = " " + score;
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
