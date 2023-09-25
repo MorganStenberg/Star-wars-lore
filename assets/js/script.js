@@ -91,7 +91,7 @@ function selectedAnswer(event) {
     const correctAnswer = selectedBtn.dataset.correct
     if (correctAnswer) {
         score++;
-        scoreCount.innerText = score;
+        scoreCount.innerText = " " + score;
         selectedBtn.classList.add('correct')
     } else {
         selectedBtn.classList.add('incorrect')
@@ -190,7 +190,8 @@ function result () {
 function resetQuiz () {
     score = 0;
     currentQuestionIndex = 0;
-    questionNr.textContent = " " + 0; 
+    questionNr.innerText = " " + currentQuestionIndex;
+    scoreCount.innerText = " " + score;
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
     }
