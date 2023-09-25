@@ -180,9 +180,6 @@ function restartQuiz () {
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
     }
-    while(resultArea.firstChild){
-        resultArea.removeChild(resultArea.firstChild);
-    }
     startQuiz()
 }
 
