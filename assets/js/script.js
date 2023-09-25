@@ -334,6 +334,37 @@ const questions = [
             { text: "YT-1760 Light Freighter", correct: false },
         ]
     },
+    { 
+        question: "What is the name of the ancient Sith Lord who created the rule of two?", 
+        answers: [ 
+        { text: "Darth Nihilus", correct: false }, 
+        { text: "Darth Revan", correct: false },
+        { text: "Darth Malak", correct: false }, 
+        { text: "Darth Bane", correct: true },
+         ] 
+    },
+    
+    { 
+        question: "What is the name of Luke Skywalkers aunt?",
+        answers: [ 
+        { text: "Tara", correct: false }, 
+        { text: "Hana", correct: false },
+        { text: "Beru", correct: true }, 
+        { text: "Nona", correct: false },
+        ] 
+    },
+    { 
+        question: "Who was the commander on the first Death Star?", 
+        answers: [ 
+        { text: "Orson Callan Krennic", correct: false }, 
+        { text: "General Grievous", correct: false },
+        { text: "Finis Valorum", correct: false }, 
+        { text: "Grand Moff Tarkin", correct: true },
+         ] 
+    },
+        
+        
+    
 ];
 
 /**
