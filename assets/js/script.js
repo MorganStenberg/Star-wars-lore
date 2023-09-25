@@ -105,10 +105,12 @@ Array.from(answerButtons.children).forEach(button => {
  */
 
 function nextQuestion () {
+    currentQuestionIndex++;
     if (currentQuestionIndex < 10) {
-        resetState()
-        displayQuestion()
-    } else { endQuiz()
+        resetState();
+        displayQuestion();
+    } else { 
+        endQuiz();
     } 
 }
 
@@ -337,20 +339,19 @@ const questions = [
     },
 ];
 
-
+/**
+ * Waits for page to load before adding eventlisteners
+ */
 document.addEventListener("DOMContentLoaded", function () {
 
 /**
-* Listens to start game event and starts the quiz and plays the start sound.
+* Listens to start game event and starts the quiz
 */
 startButton.addEventListener("click", startQuiz);
 
 // Handles click for "Next Question" button.
-nextQuestionButton.addEventListener('click', function() {
-    currentQuestionIndex++
-    nextQuestion()
-})
-
+nextQuestionButton.addEventListener('click', nextQuestion);
+    
 /* 
 Event listener for retry quiz button. Calls resetquiz function. 
 Hides result area and retry button
