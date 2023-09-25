@@ -106,7 +106,7 @@ function selectedAnswer(event) {
     }
     nextQuestionButton.classList.remove('hide');
     numberOfQuestion = currentQuestionIndex + 1;
-    questionNr.textContent = " " + numberOfQuestion;
+    questionNr.innerText = " " + numberOfQuestion;
     showCorrectAnswer();
 }
 
@@ -175,6 +175,8 @@ const worstResultText = "It's a trap!"
  */
 function result () {
     const resultText = document.createElement("p")
+    const resultScore = document.createElement("p")
+    resultScore.innerText = "You scored " + score + " of 10";
     if (score === 10) {
         console.log("placeholder 10 score")
         resultText.innerText =  bestResultText;
@@ -188,6 +190,7 @@ function result () {
         console.log("placeholder 0-3 score") 
         resultText.innerText =  worstResultText; 
     }
+    resultArea.appendChild(resultScore)
     resultArea.appendChild(resultText)
 }
 
