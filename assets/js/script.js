@@ -14,10 +14,10 @@ const resultText = document.getElementById('result-text')
 const resultScore = document.getElementById('result-score')
 const retryButton = document.getElementById('retry-btn')
 
-const bestResultText = "You are the chosen one. You will bring balance to the force"
-const goodResultText = "This is the way!"
-const mediumResultText = "Much to learn.. You still have"
-const worstResultText = "Do or do not.. There is no try"
+const bestResultText = '"You are the chosen one. You will bring balance to the force"'
+const goodResultText = '"This is the way!"'
+const mediumResultText = '"Much to learn.. You still have"'
+const worstResultText = '"Do or do not.. There is no try"'
 
 const maxQuestion = 10; 
 
