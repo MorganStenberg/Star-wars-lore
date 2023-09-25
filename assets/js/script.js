@@ -9,6 +9,7 @@ const answerButtons = document.getElementById('answer-buttons')
 const questionNr = document.getElementById('number-of-questions')
 const scoreCount = document.getElementById('score')
 const resultArea = document.getElementById('result-text')
+const retryButton = document.getElementById('retry-btn')
 
 /* 
 Event listener for start button, calls two functions
@@ -19,14 +20,29 @@ startButton.addEventListener('click', function() {
     playSound()
 })
 
+/* 
+Event listener for next question button, increments current question index
+and calls function for next question
+*/
 nextQuestionButton.addEventListener('click', function() {
     currentQuestionIndex++
     nextQuestion()
 })
 
+/* 
+Event listener for retry quiz button. Calls resetquiz function. 
+Hides result area and retry button
+*/
+retryButton.addEventListener('click', function() {
+    resetQuiz()
+    resultArea.classList.add('hide')
+    retryButton.classList.add('hide')
+})
+
 
 let currentQuestionIndex = 0; 
 let score = 0;
+let numberOfQuestion = 0;
 
 /** 
  * Function to start the quiz itself, and hide welcome text and start button
@@ -81,7 +97,7 @@ function selectedAnswer(event) {
         selectedBtn.classList.add('incorrect')
     }
     nextQuestionButton.classList.remove('hide');
-    let numberOfQuestion = currentQuestionIndex + 1;
+    numberOfQuestion = currentQuestionIndex + 1;
     questionNr.textContent = " " + numberOfQuestion;
     showCorrectAnswer();
 }
@@ -136,6 +152,7 @@ function endQuiz () {
     gameArea.classList.add('hide');
     nextQuestionButton.classList.add('hide');
     resultArea.classList.remove('hide');
+    retryButton.classList.remove('hide');
     result();
 }
 
@@ -163,6 +180,24 @@ function result () {
         console.log("placeholder 0-3 score") 
     } resultText.innerText =  worstResultText
     resultArea.appendChild(resultText)
+}
+
+/**
+ * Function to reset the quiz after pressing retry button. 
+ * Resets score, question index and question number. 
+ * Removes answer buttons and result text. Calls start quiz function. 
+ */
+function resetQuiz () {
+    score = 0;
+    currentQuestionIndex = 0;
+    questionNr.textContent = " " + 0; 
+    while(answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+    while(resultArea.firstChild){
+        resultArea.removeChild(resultArea.firstChild);
+    }
+    startQuiz()
 }
 
 
