@@ -173,16 +173,17 @@ function result () {
     const resultText = document.createElement("p")
     if (score === 10) {
         console.log("placeholder 10 score")
-        resultText.innerText =  bestResultText
+        resultText.innerText =  bestResultText;
     } else if (score < 10 && score > 6) {
         console.log("placeholder 7-9 score")
-        resultText.innerText =  goodResultText
+        resultText.innerText =  goodResultText;
     } else if (score < 7 && score > 3) {
         console.log("placeholder 4-6 score") 
-        resultText.innerText =  mediumResultText
-    } else if (score <= 3) {
+        resultText.innerText =  mediumResultText;
+    } else if (score < 4) {
         console.log("placeholder 0-3 score") 
-    } resultText.innerText =  worstResultText
+        resultText.innerText =  worstResultText; 
+    }
     resultArea.appendChild(resultText)
 }
 
