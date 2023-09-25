@@ -358,9 +358,86 @@ const questions = [
         { text: "Grand Moff Tarkin", correct: true },
          ] 
     },
+    { 
+        question: "Whose sword did Obi-Wan Kenobi use to win the fight with Darth Maul in Episode I - The Phantom Menace?",
+        answers: [ 
+        { text: "His own", correct: false }, 
+        { text: "Qui-Gon's", correct: true },
+        { text: "Mace Windu's", correct: false }, 
+        { text: "Darth Maul's", correct: false },
+         ] 
+        },
+        
+        { 
+        question: "How many years did the clone wars last?",
+        answers: [ 
+        { text: "11 years", correct: false }, 
+        { text: "6 years", correct: false },
+        { text: "9 years", correct: false }, 
+        { text: "3 years", correct: true },
+         ] 
+        },
         
         
-    
+        { 
+        question: "What planet did Luke Skywalker go to in order to find Yoda?",
+        answers: [ 
+        { text: "Endor", correct: false }, 
+        { text: "Alderaan", correct: false },
+        { text: "Dagobah", correct: true }, 
+        { text: "Yavin 4", correct: false },
+         ] 
+        },
+            
+        { 
+        question: "Who was the leader of the Gungans during the Battle of Naboo in 'The Phantom Menace'?", 
+        answers:[ 
+        { text: "Captain Tarpals", correct: false }, 
+        { text: "Boss Nass", correct: true }, 
+        { text: "Jar Jar Binks", correct: false },
+        { text: "Otoh Gunga", correct: false }, 
+        ]
+        },
+            
+        { 
+        question: "What is the name of the gas giant planet where the Clone Army was created?", 
+        answers: [ 
+        { text: "Mustafar", correct: false }, 
+        { text: "Geonosis", correct: false }, 
+        { text: "Kamino", correct: true }, 
+        { text: "Felucia", correct: false }, 
+        ] 
+        },
+            
+        {
+        question: "Which Jedi Master served as the Grand Master of the Jedi Order before Yoda?", 
+        answers: [ 
+        { text: "Mace Windu", correct: false }, 
+        { text: "Plo Koon", correct: false }, 
+        { text: "Ki-Adi-Mundi", correct: false }, 
+        { text: "Nomi Sunrider", correct: true },
+        ]
+        },
+            
+        { 
+        question: "In 'Return of the Jedi,' what is the name of the criminal organization led by Jabba the Hutt?", 
+        answers: [ 
+        { text: "Rebel Alliance", correct: false }, 
+        { text: "Galactic Empire", correct: false }, 
+        { text: "The Hutts", correct: false }, 
+        { text: "Black Sun", correct: true }, 
+        ] 
+        },
+            
+        { 
+        question: "What planet is the forest moon of Endor orbiting?", 
+        answers: [ 
+        { text: "Tatooine", correct: false }, 
+        { text: "Yavin", correct: false }, 
+        { text: "Alderaan", correct: false }, 
+        { text: "Sullust", correct: true }, 
+        ] 
+         },
 ];
 
 /**
