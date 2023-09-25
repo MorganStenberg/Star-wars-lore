@@ -76,14 +76,14 @@ function onUserSelection(event) {
     const correctAnswer = selectedBtn.dataset.correct
     if (correctAnswer) {
         score++;
-        scoreCount.innerText = " " + score;
+        scoreCount.textContent = " " + score;
         selectedBtn.classList.add('correct')
     } else {
         selectedBtn.classList.add('incorrect')
     }
     nextQuestionButton.classList.remove('hide');
     numberOfQuestion = currentQuestionIndex + 1;
-    questionNr.innerText = " " + numberOfQuestion;
+    questionNr.textContent = " " + numberOfQuestion;
     showCorrectAnswer();
 }
 
@@ -150,19 +150,19 @@ function endQuiz () {
 function renderResult () {
     const resultText = document.createElement("p")
     const resultScore = document.createElement("p")
-    resultScore.innerText = "You scored " + score + " of 10";
+    resultScore.textContent = "You scored " + score + " of 10";
     if (score === 10) {
         console.log("placeholder 10 score")
-        resultText.innerText =  bestResultText;
+        resultText.textContent =  bestResultText;
     } else if (score < 10 && score > 6) {
         console.log("placeholder 7-9 score")
-        resultText.innerText =  goodResultText;
+        resultText.textContent =  goodResultText;
     } else if (score < 7 && score > 3) {
         console.log("placeholder 4-6 score") 
-        resultText.innerText =  mediumResultText;
+        resultText.textContent =  mediumResultText;
     } else if (score < 4) {
         console.log("placeholder 0-3 score") 
-        resultText.innerText =  worstResultText; 
+        resultText.textContent =  worstResultText; 
     }
     resultArea.appendChild(resultScore)
     resultArea.appendChild(resultText)
@@ -176,8 +176,8 @@ function renderResult () {
 function restartQuiz () {
     score = 0;
     currentQuestionIndex = 0;
-    questionNr.innerText = " " + currentQuestionIndex;
-    scoreCount.innerText = " " + score;
+    questionNr.textContent = " " + currentQuestionIndex;
+    scoreCount.textContent = " " + score;
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
     }
