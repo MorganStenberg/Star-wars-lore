@@ -63,7 +63,11 @@ function playSound () {
     startSound.play()
 }
 
-// Function to get a question from question array and calculate number of questions
+/**
+ * Function to get a question and corresponding answers from question array. 
+ * Inserts question and creates answer buttons. Buttons listenes for click
+ * and calls function for selecting answer.
+ *  */ 
 function displayQuestion() {
     let currentQuestion = questions[currentQuestionIndex];
     
