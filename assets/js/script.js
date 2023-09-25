@@ -11,33 +11,6 @@ const scoreCount = document.getElementById('score')
 const resultArea = document.getElementById('result-text')
 const retryButton = document.getElementById('retry-btn')
 
-/* 
-Event listener for start button, calls two functions
-for starting the quiz and sound effect.
-*/
-startButton.addEventListener('click', function() {
-    startQuiz()
-    playSound()
-})
-
-/* 
-Event listener for next question button, increments current question index
-and calls function for next question
-*/
-nextQuestionButton.addEventListener('click', function() {
-    currentQuestionIndex++
-    nextQuestion()
-})
-
-/* 
-Event listener for retry quiz button. Calls resetquiz function. 
-Hides result area and retry button
-*/
-retryButton.addEventListener('click', function() {
-    resetQuiz()
-    resultArea.classList.add('hide')
-    retryButton.classList.add('hide')
-})
 
 
 let currentQuestionIndex = 0; 
@@ -58,11 +31,12 @@ function startQuiz () {
     currentQuestionIndex = 0;
     score = 0;
     randomizedQuestion = questions.sort(() => Math.random() - 0.5);
+    playSound ()
     displayQuestion();
 
 }
 
-// For playing sound when clicking start button
+// For playing sound when starting quiz
 function playSound () {
     startSound.play()
 }
@@ -362,3 +336,28 @@ const questions = [
         ]
     },
 ];
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+/**
+* Listens to start game event and starts the quiz and plays the start sound.
+*/
+startButton.addEventListener("click", startQuiz);
+
+// Handles click for "Next Question" button.
+nextQuestionButton.addEventListener('click', function() {
+    currentQuestionIndex++
+    nextQuestion()
+})
+
+/* 
+Event listener for retry quiz button. Calls resetquiz function. 
+Hides result area and retry button
+*/
+retryButton.addEventListener('click', function() {
+    resetQuiz()
+    resultArea.classList.add('hide')
+    retryButton.classList.add('hide')
+});
+});
