@@ -6,7 +6,7 @@ const nextQuestionButton = document.getElementById('next-btn')
 const startSound = new Audio('assets/audio/lightsaber.mp3')
 const questionElement = document.getElementById('questions')
 const answerButtons = document.getElementById('answer-buttons')
-const questionNr = document.getElementById('number-of-questions')
+const questionCounter = document.getElementById('question-counter')
 const scoreCount = document.getElementById('score')
 const resultArea = document.getElementById('result-area')
 const result = document.getElementById('result')
@@ -59,7 +59,8 @@ function displayQuestion() {
     
     questionElement.textContent = currentQuestion.question;
     
-
+    numberOfQuestion = currentQuestionIndex + 1;
+    questionCounter.textContent = `Question ${numberOfQuestion} of ${maxQuestion}`;
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
@@ -86,9 +87,7 @@ function onUserSelection(event) {
     } else {
         selectedBtn.classList.add('incorrect')
     }
-    nextQuestionButton.classList.remove('hide');
-    numberOfQuestion = currentQuestionIndex + 1;
-    questionNr.textContent = " " + numberOfQuestion;
+    nextQuestionButton.classList.remove('hide');   
     showCorrectAnswer();
 }
 
