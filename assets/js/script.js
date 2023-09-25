@@ -24,7 +24,7 @@ let numberOfQuestion = 0;
 let randomizedQuestions; 
 
 /** 
- * Function to start the quiz itself, and hide welcome text and start button.
+ * Starts the quiz itself, hides welcome text and start button.
  * Calls displayQuestion function and randomizes the questions, 
  * credit for using sort method to randomize: 
  * https://stackdiary.com/tutorials/how-to-randomly-shuffle-a-javascript-array/
@@ -41,14 +41,14 @@ function startQuiz () {
 
 }
 
-// For playing sound when starting quiz
+// Plays sound when starting quiz
 function playSound () {
     startSound.play()
 }
 
 /**
- * Function to get a question and corresponding answers from question array. 
- * Inserts question and creates answer buttons. Buttons listenes for click
+ * Gets a question and corresponding answers from question array. 
+ * Inserts question and creates answer buttons. Buttons listens for click
  * and calls function for selecting answer.
  *  */ 
 function displayQuestion() {
@@ -69,9 +69,9 @@ function displayQuestion() {
     })
 }
 
-/** Function to check if answer is correct, increment score 
-and calculate total number of questions. Also callin function to show correct answer 
-and disable answer buttons. 
+/** 
+ * Checks if answer is correct, increments score and total number of questions. 
+ * Calls function to show correct answer and disable answer buttons. 
 */ 
 function onUserSelection(event) {
     const selectedBtn = event.target
@@ -91,8 +91,9 @@ function onUserSelection(event) {
 
 
 /**
- * Function to disable answerbutton when one answer is selected, also callin function 
- * to highlight the correct answer if wrong one is picked. Credit to https://www.youtube.com/watch?v=PBcqGxrr9g8 
+ * Shows correct answer to user if wrong answer is picked,
+ * disables buttons after user has answered.
+ * Credit to https://www.youtube.com/watch?v=PBcqGxrr9g8 
  */
 function showCorrectAnswer() {
 Array.from(answerButtons.children).forEach(button => {
@@ -104,11 +105,10 @@ Array.from(answerButtons.children).forEach(button => {
 }
 
 /**
- * Function to call the right functions for resetting game area and 
- * displaying next question. If max nr of question reached 
- * call results function
+ * Calls the right functions for resetting game area and 
+ * displaying next question. Increments question index.
+ * Calls function to end quiz if max nr of question has been reached.
  */
-
 function nextQuestion () {
     currentQuestionIndex++;
     if (currentQuestionIndex < maxQuestion) {
@@ -120,10 +120,10 @@ function nextQuestion () {
 }
 
 /**
- * Function to reset game area for next question. Removes answer buttons from previous question 
- * and hides the next button. Credit for how to remove answer buttons from https://www.youtube.com/watch?v=PBcqGxrr9g8
+ * Resets game area for next question. Removes answer buttons from previous question 
+ * and hides the next button. 
+ * Credit for how to remove answer buttons from https://www.youtube.com/watch?v=PBcqGxrr9g8
  */
-
 function resetQuestion () {
     nextQuestionButton.classList.add('hide');
     while(answerButtons.firstChild){
@@ -133,10 +133,9 @@ function resetQuestion () {
 }
 
 /**
- * Function to end the quiz after max question reached
- * and call function to display result to user
+ * Ends quiz after max number of question has been reached.
+ * Calls function to display result to user
  */
-
 function endQuiz () {
     gameArea.classList.add('hide');
     nextQuestionButton.classList.add('hide');
@@ -146,8 +145,7 @@ function endQuiz () {
 }
 
 /** 
- * Function to display results, depending on nr of 
- * correct answers will show different quote to user
+ * Renders result to user. Displays different texts depending on range of score
  */
 function renderResult () {
     const resultText = document.createElement("p")
@@ -171,7 +169,7 @@ function renderResult () {
 }
 
 /**
- * Function to reset the quiz after pressing retry button. 
+ * Restarts the quiz after user presses retry button. 
  * Resets score, question index and question number. 
  * Removes answer buttons and result text. Calls start quiz function. 
  */
@@ -190,7 +188,7 @@ function restartQuiz () {
 }
 
 
-
+// Questions for the quiz
 const questions = [
     { 
         question: "What is the name of Luke Skywalker's home planet?", 
