@@ -16,6 +16,8 @@ const goodResultText = "Great promise in you I feel"
 const mediumResultText = "Much to learn young padawan has"
 const worstResultText = "It's a trap!"
 
+const maxQuestion = 10; 
+
 let currentQuestionIndex = 0; 
 let score = 0;
 let numberOfQuestion = 0;
@@ -109,7 +111,7 @@ Array.from(answerButtons.children).forEach(button => {
 
 function nextQuestion () {
     currentQuestionIndex++;
-    if (currentQuestionIndex < 10) {
+    if (currentQuestionIndex < maxQuestion) {
         resetQuestion();
         displayQuestion();
     } else { 
@@ -150,18 +152,18 @@ function endQuiz () {
 function renderResult () {
     const resultText = document.createElement("p")
     const resultScore = document.createElement("p")
-    resultScore.textContent = "You scored " + score + " of 10";
-    if (score === 10) {
-        console.log("placeholder 10 score")
+    resultScore.textContent = `You scored ${score} of ${maxQuestion}`;
+
+    // calculating the score range
+    const scorePercentage = (score / maxQuestion) * 100; 
+
+    if (score === maxQuestion) {
         resultText.textContent =  bestResultText;
-    } else if (score < 10 && score > 6) {
-        console.log("placeholder 7-9 score")
+    } else if (scorePercentage >= 70 && scorePercentage < 100) {
         resultText.textContent =  goodResultText;
-    } else if (score < 7 && score > 3) {
-        console.log("placeholder 4-6 score") 
+    } else if (scorePercentage >= 40 && scorePercentage < 70) {
         resultText.textContent =  mediumResultText;
-    } else if (score < 4) {
-        console.log("placeholder 0-3 score") 
+    } else if (scorePercentage < 40) {
         resultText.textContent =  worstResultText; 
     }
     resultArea.appendChild(resultScore)
