@@ -77,6 +77,24 @@ body {
     text-align: center;
 }
 
+/* Styling for the result area */
+#result-area {
+    background-color: #000000;
+    width: 600px;
+    max-width: 90%;
+    margin: 10px auto;
+    border: 5px solid;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px;
+}
+
+#result {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    gap: 15px;
+}
+
+
 /* Styling for the answer buttons - credit to "MDN Repeat" on how to use grid-template-columns*/
 #answer-buttons {
     display: grid;

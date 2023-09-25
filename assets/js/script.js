@@ -8,7 +8,8 @@ const questionElement = document.getElementById('questions')
 const answerButtons = document.getElementById('answer-buttons')
 const questionNr = document.getElementById('number-of-questions')
 const scoreCount = document.getElementById('score')
-const resultArea = document.getElementById('result-text')
+const resultArea = document.getElementById('result-area')
+const result = document.getElementById('result')
 const retryButton = document.getElementById('retry-btn')
 
 const bestResultText = "The force is strong with you!"
@@ -164,8 +165,8 @@ function renderResult () {
     } else if (scorePercentage < 40) {
         resultText.textContent =  worstResultText; 
     }
-    resultArea.appendChild(resultScore)
-    resultArea.appendChild(resultText)
+    result.appendChild(resultScore)
+    result.appendChild(resultText)
 }
 
 /**
