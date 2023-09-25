@@ -8,7 +8,7 @@ const questionElement = document.getElementById('questions')
 const answerButtons = document.getElementById('answer-buttons')
 const questionNr = document.getElementById('number-of-questions')
 const scoreCount = document.getElementById('score')
-const resultText = document.getElementById('result-text')
+const resultArea = document.getElementById('result-text')
 
 /* 
 Event listener for start button, calls two functions
@@ -129,33 +129,42 @@ function resetState () {
 
 /**
  * Function to end the quiz after max question reached
- * and display result to user
+ * and call function to display result to user
  */
 
 function endQuiz () {
     gameArea.classList.add('hide');
     nextQuestionButton.classList.add('hide');
-    resultText.classList.remove('hide');
+    resultArea.classList.remove('hide');
     result();
 }
 
+const bestResultText = "The force is strong with you!"
+const goodResultText = "Great promise in you I feel"
+const mediumResultText = "Much to learn young padawan has"
+const worstResultText = "It's a trap!"
 
 /** 
  * Function to display results, depending on nr of 
  * correct answers will show different quote to user
  */
 function result () {
+    const resultText = document.createElement("p")
     if (score === 10) {
-        console.log("placeholder 10 score") 
+        console.log("placeholder 10 score")
+        resultText.innerText =  bestResultText
     } else if (score < 10 && score > 6) {
-        console.log("placeholder 7-9 score") 
+        console.log("placeholder 7-9 score")
+        resultText.innerText =  goodResultText
     } else if (score < 7 && score > 3) {
         console.log("placeholder 4-6 score") 
+        resultText.innerText =  mediumResultText
     } else if (score <= 3) {
         console.log("placeholder 0-3 score") 
-    }
-        
+    } resultText.innerText =  worstResultText
+    resultArea.appendChild(resultText)
 }
+
 
 
 const questions = [
