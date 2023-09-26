@@ -24,7 +24,9 @@ This quiz is created to be a fun and challenging game for Star Wars enthusiasts.
 
 # Planning and design
 
-The website was planned and designed to give and authenic Star Wars feeling with the right colors and background image. It was also intended to be easy to use and give immediate feedback to the user, via colors and text. As well as excluding any extra pages and having all the content beeing manipulated and displayed on one page to increase swiftness and user experience. 
+The website was planned and designed to give and authenic Star Wars feeling with the right colors and background image. It was also intended to be easy to use and give immediate feedback to the user, via colors and text. As well as excluding any extra pages and having all the content beeing manipulated and displayed on one page to increase swiftness and user experience. The website was also designed to be responsive with elements increasing in size for bigger screens and decreasing for smaller screens. 
+
+The colors were chosen based on the colors in the opening "crawl" of the Star Wars movies. With the help of https://imagecolorpicker.com/. And the background image was chosen to give the feeling of "space". The font chosen for the header is "Orbitron", for its similarity to the official Star Wars font. The font for the the rest of the content is "Roboto Condensed", is similar to Orbitron but more clean and readable. 
 
 ## Wireframes 
 
@@ -40,7 +42,45 @@ End screen ![wireframe end screen](documentation/wireframes/End%20page.png)
 
 # Features 
 
+## Existing features
+
+### Start
+
+A home page with a welcome text, with a fun and challenging tone. Inviting the user to try their knowledge. 
+The start page contains a logo with the name of the website, which also is a link to the home page. 
+There is a startbutton which starts the quiz and plays a sound of a lightsaber.
+At the bottom right there is a footer inviting the user to share the quiz with a link on social media and challenge their friends. 
+![start page with welcome text](documentation/screenshots/welcome_text.PNG)
+
+### Quiz
+
+Once starting the quiz there is a game area, consistent with the design of the welcome screen. The game area contains a question counter at the top which lets the user know which question they are on and how many are left. As well as the question it self, with 4 answer buttons below. The questions displayed to the user are randomized, so that it does not show the same ones everytime the user starts the quiz. 
+
+Once answered the button highlights the correct answer in green and if the user answered incorrectly, it shows that answer in red. Once the user has answered the answer buttons are disabled. There is also a button below for proceeding to the next question.
+![quiz question with answer buttons](documentation/screenshots/quiz.PNG)
+
+### End Game 
+Once the user has finished the quiz, after 10 questions. They are presented with their score and a corresponding quote for different scores (0-3, 4-6, 7-9 and 10). A retry button appears which lets the user restart the quiz easily with one click only without having to go to the home page. 
+![end game screen with retry button](documentation/screenshots/end_game.PNG)
+
+## Future features
+- The possibility to choose difficulty 
+- Feature to create a screenshot with the score for the user to share
+
 # Technologies and languages used
+
+## Languages 
+- HTML 
+- CSS
+- Javascript
+
+## Technologies
+- [Balsamiq](https://balsamiq.com/) was used to create the wireframes. 
+- [Google Fonts](https://fonts.google.com/) was used for the fonts.
+- [Fontawesome](https://fontawesome.com/) was used for social media icons in the footer.
+- Git was used as version control, by pushing the code via the Gitpod terminal. 
+- [GitHub](https://github.com/) is used as a repository for the code.
+- [Favicon](https://favicon.io/favicon-converter/) was used to create the favicon
 
 # Testing
 
