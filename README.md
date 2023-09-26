@@ -4,8 +4,8 @@ Star Wars Lore is a javascript quiz, created to be fun and engaging to fans of t
 ## Table of contents
 
 - [User experience](#user-experience)
-- [Features](#features)
 - [Planning and design](#planning-and-design)
+- [Features](#features)
 - [Technologies and languages uses](#technologies-and-languages-used)
 - [Testing](#testing)
 - [Deployment](#deployment)
@@ -22,9 +22,23 @@ This quiz is created to be a fun and challenging game for Star Wars enthusiasts.
 - As a user, I would like to have a way to share the Quiz the quiz URL with friends & family through social media (Facebook and Twitter).
 - As a user, I would like to be able to quickly (with one click) retry and restart the quiz after finishing. 
 
-# Features 
-
 # Planning and design
+
+The website was planned and designed to give and authenic Star Wars feeling with the right colors and background image. It was also intended to be easy to use and give immediate feedback to the user, via colors and text. As well as excluding any extra pages and having all the content beeing manipulated and displayed on one page to increase swiftness and user experience. 
+
+## Wireframes 
+
+The first design of the website was planned with a simple hierarchy, with the main game area taking up most of the space and the logo and footer placed to the top left and bottom right respectively. As seen on the wireframes below. 
+
+This was changed while building the website, to a design where both the header (with the logo) and the game area with questions and answers were centered on the page. While the footer is still kept to the bottom right of the page.
+
+Start page ![wireframe start page](documentation/wireframes/Trivia%20quiz.png)
+
+Game area ![wireframe game area](documentation/wireframes/Quiz%20page.png)
+
+End screen ![wireframe end screen](documentation/wireframes/End%20page.png)
+
+# Features 
 
 # Technologies and languages used
 
