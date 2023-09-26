@@ -96,13 +96,11 @@ body {
     border: 5px solid;
     border-radius: 5px;
     box-shadow: 0 0 5px 2px;
+    padding: 10px 0;
 }
 
-#result {
-    padding-top: 10px;
-    padding-bottom: 20px;
-    gap: 15px;
-    text-align: center;
+.result-content {
+    padding: 10px 0; 
 }
 
 
