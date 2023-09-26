@@ -57,9 +57,13 @@ body {
     box-shadow: 0 0 5px 2px;
 }
 
+#welcome-text p {
+    padding-top: 10px;
+}
+
 #welcome-text h2 {
     font-weight: normal;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 /* Styling for the game area container */ 

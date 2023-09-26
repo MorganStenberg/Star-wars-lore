@@ -45,5 +45,12 @@ End screen ![wireframe end screen](documentation/wireframes/End%20page.png)
 # Testing
 
 # Deployment
+The site was deployed through GitHub pages. The steps taken to deploy are as follows. 
+- In the GitHub repository for the project, navigate to settings tab, then to pages on the left hand menu. 
+- Select the main branch from the dropdown menu for branch. 
+- Make sure that deploy from a branch is selected in the source menu.
+- Click save and the page will be refreshed with a link to the live project. 
+
+Live link to the project here https://morganstenberg.github.io/Star-wars-lore/ 
 
 # Credits
