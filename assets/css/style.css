@@ -159,10 +159,9 @@ body {
     flex-direction: row;
     justify-content: center;
     margin: 10px;
-    gap: 5px;
 }
 
-/* Footer styling - inspired by answer on Stackoverflow, link in credits*/
+/* Footer styling - inspired by answer on Stackoverflow */
 footer {
     display: flex;
     justify-content: flex-end;
@@ -171,9 +170,16 @@ footer {
     gap: 5px;
 }
 
-.footer {
+.footer-content {
     color: #1da9b9;
     background-color: #000000;
+}
+
+/* Media query for larger phones */ 
+@media screen and (min-width: 400px) {
+    #header {
+        font-size: 1.25rem;
+    }
 }
 
 
@@ -181,6 +187,10 @@ footer {
 @media screen and (min-width: 768px) {
     #header {
         font-size: 1.5rem;
+    }
+
+    .footer-content {
+        font-size: 1.15rem;
     }
 }
 
@@ -190,11 +200,28 @@ footer {
     #header {
         font-size: 2rem;
     }
+
     #welcome-text {
         max-width: 720px;
     }
+
     #game-area {
         width: 720px;
     }
 
+    .main-content {
+        font-size: 1.5rem;
+    }
+
+    .start-next-btn {
+        font-size: 1.1rem;
+    }
+
+    .btn-answer {
+        font-size: 1.1rem;
+    }
+
+    .footer-content {
+        font-size: 1.25rem;
+    }
 }
