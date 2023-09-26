@@ -22,8 +22,8 @@ body {
 #header {
     font-family: 'Orbitron', sans-serif;
     margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 80px;
     text-align: center;
 }
@@ -42,7 +42,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px 5px;
+    margin: 0px 5px;
 } 
 
 /* Styling for welcome text */ 
@@ -79,6 +79,10 @@ body {
     text-align: center;
 }
 
+#question-counter {
+    padding-top: 10px;
+}
+
 /* Styling for the result area */
 #result-area {
     background-color: #000000;
@@ -94,6 +98,7 @@ body {
     padding-top: 10px;
     padding-bottom: 20px;
     gap: 15px;
+    text-align: center;
 }
 
 
@@ -183,6 +188,13 @@ footer {
 /* Media query for desktop */ 
 @media screen and (min-width: 1200px) {
     #header {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
+    #welcome-text {
+        max-width: 720px;
+    }
+    #game-area {
+        width: 720px;
+    }
+
 }
