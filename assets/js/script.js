@@ -1,23 +1,22 @@
 // connecting html elements to variables
-const startButton = document.getElementById('start-btn')
-const welcomeText = document.getElementById('welcome-text')
-const gameArea = document.getElementById('game-area')
-const nextQuestionButton = document.getElementById('next-btn')
-const startSound = new Audio('assets/audio/lightsaber.mp3')
-const questionElement = document.getElementById('questions')
-const answerButtons = document.getElementById('answer-buttons')
-const questionCounter = document.getElementById('question-counter')
-const scoreCount = document.getElementById('score')
-const resultArea = document.getElementById('result-area')
-const result = document.getElementById('result')
-const resultText = document.getElementById('result-text')
-const resultScore = document.getElementById('result-score')
-const retryButton = document.getElementById('retry-btn')
+const startButton = document.getElementById('start-btn');
+const welcomeText = document.getElementById('welcome-text');
+const gameArea = document.getElementById('game-area');
+const nextQuestionButton = document.getElementById('next-btn');
+const startSound = new Audio('assets/audio/lightsaber.mp3');
+const questionElement = document.getElementById('questions');
+const answerButtons = document.getElementById('answer-buttons');
+const questionCounter = document.getElementById('question-counter');
+const scoreCount = document.getElementById('score');
+const resultArea = document.getElementById('result-area');
+const resultText = document.getElementById('result-text');
+const resultScore = document.getElementById('result-score');
+const retryButton = document.getElementById('retry-btn');
 
-const bestResultText = '"You are the chosen one. You will bring balance to the force"'
-const goodResultText = '"This is the way!"'
-const mediumResultText = '"Much to learn.. You still have"'
-const worstResultText = '"Do or do not.. There is no try"'
+const bestResultText = '"You are the chosen one. You will bring balance to the force"';
+const goodResultText = '"This is the way!"';
+const mediumResultText = '"Much to learn.. You still have"';
+const worstResultText = '"Do or do not.. There is no try"';
 
 const maxQuestion = 10; 
 
@@ -39,14 +38,14 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     randomizedQuestions = questions.sort(() => Math.random() - 0.5);
-    playSound()
+    playSound();
     displayQuestion();
 
 }
 
 // Plays sound when starting quiz
 function playSound() {
-    startSound.play()
+    startSound.play();
 }
 
 /**
@@ -66,11 +65,11 @@ function displayQuestion() {
         button.innerHTML = answer.text;
         button.classList.add('btn-answer');
         answerButtons.appendChild(button);
-        button.addEventListener("click", onUserSelection)
+        button.addEventListener("click", onUserSelection);
         if (answer.correct) {
-            button.dataset.correct = answer.correct
+            button.dataset.correct = answer.correct;
         }
-    })
+    });
 }
 
 /** 
@@ -78,14 +77,14 @@ function displayQuestion() {
  * Calls function to show correct answer and disable answer buttons. 
 */
 function onUserSelection(event) {
-    const selectedBtn = event.target
-    const correctAnswer = selectedBtn.dataset.correct
+    const selectedBtn = event.target;
+    const correctAnswer = selectedBtn.dataset.correct;
     if (correctAnswer) {
         score++;
         scoreCount.textContent = " " + score;
-        selectedBtn.classList.add('correct')
+        selectedBtn.classList.add('correct');
     } else {
-        selectedBtn.classList.add('incorrect')
+        selectedBtn.classList.add('incorrect');
     }
     nextQuestionButton.classList.remove('hide');
     showCorrectAnswer();
@@ -103,7 +102,7 @@ function showCorrectAnswer() {
             button.classList.add("correct");
         }
         button.disabled = true;
-    })
+    });
 }
 
 /**
@@ -178,7 +177,7 @@ function restartQuiz() {
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
-    startQuiz()
+    startQuiz();
 }
 
 
@@ -457,8 +456,8 @@ document.addEventListener("DOMContentLoaded", function () {
     Hides result area and retry button
     */
     retryButton.addEventListener('click', function () {
-        restartQuiz()
-        resultArea.classList.add('hide')
-        retryButton.classList.add('hide')
+        restartQuiz();
+        resultArea.classList.add('hide');
+        retryButton.classList.add('hide');
     });
 });
