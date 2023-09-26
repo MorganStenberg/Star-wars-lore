@@ -32,20 +32,20 @@ let randomizedQuestions;
  * credit for using sort method to randomize: 
  * https://stackdiary.com/tutorials/how-to-randomly-shuffle-a-javascript-array/
  */
-function startQuiz () {
+function startQuiz() {
     welcomeText.classList.add('hide');
     startButton.classList.add('hide');
     gameArea.classList.remove('hide');
     currentQuestionIndex = 0;
     score = 0;
     randomizedQuestions = questions.sort(() => Math.random() - 0.5);
-    playSound ()
+    playSound()
     displayQuestion();
 
 }
 
 // Plays sound when starting quiz
-function playSound () {
+function playSound() {
     startSound.play()
 }
 
@@ -53,12 +53,12 @@ function playSound () {
  * Gets a question and corresponding answers from question array. 
  * Inserts question and creates answer buttons. Buttons listens for click
  * and calls function for selecting answer.
- *  */ 
+ *  */
 function displayQuestion() {
     let currentQuestion = randomizedQuestions[currentQuestionIndex];
-    
+
     questionElement.textContent = currentQuestion.question;
-    
+
     numberOfQuestion = currentQuestionIndex + 1;
     questionCounter.textContent = `Question ${numberOfQuestion} of ${maxQuestion}`;
     currentQuestion.answers.forEach(answer => {
@@ -76,7 +76,7 @@ function displayQuestion() {
 /** 
  * Checks if answer is correct, increments score and total number of questions. 
  * Calls function to show correct answer and disable answer buttons. 
-*/ 
+*/
 function onUserSelection(event) {
     const selectedBtn = event.target
     const correctAnswer = selectedBtn.dataset.correct
@@ -87,7 +87,7 @@ function onUserSelection(event) {
     } else {
         selectedBtn.classList.add('incorrect')
     }
-    nextQuestionButton.classList.remove('hide');   
+    nextQuestionButton.classList.remove('hide');
     showCorrectAnswer();
 }
 
@@ -98,12 +98,12 @@ function onUserSelection(event) {
  * Credit to https://www.youtube.com/watch?v=PBcqGxrr9g8 
  */
 function showCorrectAnswer() {
-Array.from(answerButtons.children).forEach(button => {
-    if (button.dataset.correct === "true") {
-        button.classList.add("correct");
-    }
-    button.disabled = true; 
-})
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    })
 }
 
 /**
@@ -111,14 +111,14 @@ Array.from(answerButtons.children).forEach(button => {
  * displaying next question. Increments question index.
  * Calls function to end quiz if max nr of question has been reached.
  */
-function nextQuestion () {
+function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < maxQuestion) {
         resetQuestion();
         displayQuestion();
-    } else { 
+    } else {
         endQuiz();
-    } 
+    }
 }
 
 /**
@@ -126,19 +126,19 @@ function nextQuestion () {
  * and hides the next button. 
  * Credit for how to remove answer buttons from https://www.youtube.com/watch?v=PBcqGxrr9g8
  */
-function resetQuestion () {
+function resetQuestion() {
     nextQuestionButton.classList.add('hide');
-    while(answerButtons.firstChild){
+    while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
-    
+
 }
 
 /**
  * Ends quiz after max number of question has been reached.
  * Calls function to display result to user
  */
-function endQuiz () {
+function endQuiz() {
     gameArea.classList.add('hide');
     nextQuestionButton.classList.add('hide');
     resultArea.classList.remove('hide');
@@ -149,20 +149,20 @@ function endQuiz () {
 /** 
  * Renders result to user. Displays different texts depending on range of score
  */
-function renderResult () {
+function renderResult() {
     resultScore.textContent = `You scored ${score} of ${maxQuestion}`;
 
     // calculating the score range
-    const scorePercentage = (score / maxQuestion) * 100; 
+    const scorePercentage = (score / maxQuestion) * 100;
 
     if (score === maxQuestion) {
-        resultText.textContent =  bestResultText;
+        resultText.textContent = bestResultText;
     } else if (scorePercentage >= 70 && scorePercentage < 100) {
-        resultText.textContent =  goodResultText;
+        resultText.textContent = goodResultText;
     } else if (scorePercentage >= 40 && scorePercentage < 70) {
-        resultText.textContent =  mediumResultText;
+        resultText.textContent = mediumResultText;
     } else if (scorePercentage < 40) {
-        resultText.textContent =  worstResultText; 
+        resultText.textContent = worstResultText;
     }
 }
 
@@ -171,11 +171,11 @@ function renderResult () {
  * Resets score, question index and question number. 
  * Removes answer buttons and result text. Calls start quiz function. 
  */
-function restartQuiz () {
+function restartQuiz() {
     score = 0;
     currentQuestionIndex = 0;
     scoreCount.textContent = " " + score;
-    while(answerButtons.firstChild){
+    while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
     startQuiz()
@@ -184,87 +184,87 @@ function restartQuiz () {
 
 // Questions for the quiz
 const questions = [
-    { 
-        question: "What is the name of Luke Skywalker's home planet?", 
-        answers: [ 
-            { text: "Tatooine", correct: true }, 
-            { text: "Alderaan", correct: false }, 
-            { text: "Naboo", correct: false }, 
-            { text: "Coruscant", correct: false }, 
-         ]
-     },
-     { 
-        question: "What type of ship does Boba Fett fly in the original trilogy?", 
-        answers: [ 
-            { text: "Slave I", correct: true }, 
-            { text: "Imperial Shuttle", correct: false }, 
+    {
+        question: "What is the name of Luke Skywalker's home planet?",
+        answers: [
+            { text: "Tatooine", correct: true },
+            { text: "Alderaan", correct: false },
+            { text: "Naboo", correct: false },
+            { text: "Coruscant", correct: false },
+        ]
+    },
+    {
+        question: "What type of ship does Boba Fett fly in the original trilogy?",
+        answers: [
+            { text: "Slave I", correct: true },
+            { text: "Imperial Shuttle", correct: false },
             { text: "TIE Fighter", correct: false },
-            { text: "X-wing Starfighter", correct: false },             
-         ]
-     },
-     { 
-        question: "What is the name of the ancient Sith home world?", 
-        answers: [ 
-            { text: "Korriban", correct: true }, 
-            { text: "Dromund Kaas", correct: false }, 
-            { text: "Malachor V", correct: false }, 
-            { text: "Exegol", correct: false }, 
-         ]
-     },
-    { 
-        question: "What is the name of the ancient and powerful dark side Force users who are sworn enemies of the Jedi?", 
-        answers: [ 
-            { text: "Mandalorians", correct: false }, 
-            { text: "Sith", correct: true }, 
+            { text: "X-wing Starfighter", correct: false },
+        ]
+    },
+    {
+        question: "What is the name of the ancient Sith home world?",
+        answers: [
+            { text: "Korriban", correct: true },
+            { text: "Dromund Kaas", correct: false },
+            { text: "Malachor V", correct: false },
+            { text: "Exegol", correct: false },
+        ]
+    },
+    {
+        question: "What is the name of the ancient and powerful dark side Force users who are sworn enemies of the Jedi?",
+        answers: [
+            { text: "Mandalorians", correct: false },
+            { text: "Sith", correct: true },
             { text: "Inquisitors", correct: false },
             { text: "Nightsisters", correct: false },
-         ] 
-    },
-    { 
-        question: "Which Sith Lord was known as the 'Darth Plagueis the Wise'?", 
-        answers: [ 
-            { text: "Darth Malgus", correct: false }, 
-            { text: "Darth Sidious (Emperor Palpatine)", correct: true }, 
-            { text: "Darth Bane", correct: false }, 
-            { text: "Darth Revan", correct: false }, 
         ]
-    }, 
-    { 
+    },
+    {
+        question: "Which Sith Lord was known as the 'Darth Plagueis the Wise'?",
+        answers: [
+            { text: "Darth Malgus", correct: false },
+            { text: "Darth Sidious (Emperor Palpatine)", correct: true },
+            { text: "Darth Bane", correct: false },
+            { text: "Darth Revan", correct: false },
+        ]
+    },
+    {
         question: "What is the name of the bounty hunter who captured Han Solo in 'Return of the Jedi'?",
-        answers: [ 
-            { text: "Zuckuss", correct: false }, 
-            { text: "Aurra Sing", correct: false }, 
-            { text: "Boushh", correct: true }, 
-            { text: "4-LOM", correct: false }, 
-        ] 
-    }, 
-        
-    { 
-        question: "What type of ship does Boba Fett fly in the original trilogy?", 
-        answers: [ 
-            { text: "Slave I", correct: true }, 
-            { text: "X-wing Starfighter", correct: false }, 
-            { text: "Imperial Shuttle", correct: false }, 
-            { text: "TIE Fighter", correct: false }, 
-        ] 
-    },  
-    { 
-        question: "What is the name of the system where the Rebel Alliance's Echo Base is located in 'The Empire Strikes Back'?", 
-        answers: [ 
+        answers: [
+            { text: "Zuckuss", correct: false },
+            { text: "Aurra Sing", correct: false },
+            { text: "Boushh", correct: true },
+            { text: "4-LOM", correct: false },
+        ]
+    },
+
+    {
+        question: "What type of ship does Boba Fett fly in the original trilogy?",
+        answers: [
+            { text: "Slave I", correct: true },
+            { text: "X-wing Starfighter", correct: false },
+            { text: "Imperial Shuttle", correct: false },
+            { text: "TIE Fighter", correct: false },
+        ]
+    },
+    {
+        question: "What is the name of the system where the Rebel Alliance's Echo Base is located in 'The Empire Strikes Back'?",
+        answers: [
             { text: "Dagobah System", correct: false },
-            { text: "Endor System", correct: false }, 
-            { text: "Hoth System", correct: true }, 
-            { text: "Tatoo System", correct: false }, 
-        ] 
-    },     
-    { 
-        question: "What species is Grand Admiral Thrawn?", 
-        answers: [ 
-            { text: "Rodian", correct: false }, 
-            { text: "Chiss", correct: true }, 
-            { text: "Sullustan", correct: false }, 
-            { text: "Twilek", correct: false }, 
-        ] 
+            { text: "Endor System", correct: false },
+            { text: "Hoth System", correct: true },
+            { text: "Tatoo System", correct: false },
+        ]
+    },
+    {
+        question: "What species is Grand Admiral Thrawn?",
+        answers: [
+            { text: "Rodian", correct: false },
+            { text: "Chiss", correct: true },
+            { text: "Sullustan", correct: false },
+            { text: "Twilek", correct: false },
+        ]
     },
     {
         question: "Who is the leader of the Nightsisters, a clan of Force-sensitive witches on Dathomir?",
@@ -329,114 +329,114 @@ const questions = [
             { text: "YT-1760 Light Freighter", correct: false },
         ]
     },
-    { 
-        question: "What is the name of the ancient Sith Lord who created the rule of two?", 
-        answers: [ 
-        { text: "Darth Nihilus", correct: false }, 
-        { text: "Darth Revan", correct: false },
-        { text: "Darth Malak", correct: false }, 
-        { text: "Darth Bane", correct: true },
-         ] 
+    {
+        question: "What is the name of the ancient Sith Lord who created the rule of two?",
+        answers: [
+            { text: "Darth Nihilus", correct: false },
+            { text: "Darth Revan", correct: false },
+            { text: "Darth Malak", correct: false },
+            { text: "Darth Bane", correct: true },
+        ]
     },
-    
-    { 
+
+    {
         question: "What is the name of Luke Skywalkers aunt?",
-        answers: [ 
-        { text: "Tara", correct: false }, 
-        { text: "Hana", correct: false },
-        { text: "Beru", correct: true }, 
-        { text: "Nona", correct: false },
-        ] 
+        answers: [
+            { text: "Tara", correct: false },
+            { text: "Hana", correct: false },
+            { text: "Beru", correct: true },
+            { text: "Nona", correct: false },
+        ]
     },
-    { 
-        question: "Who was the commander on the first Death Star?", 
-        answers: [ 
-        { text: "Orson Callan Krennic", correct: false }, 
-        { text: "General Grievous", correct: false },
-        { text: "Finis Valorum", correct: false }, 
-        { text: "Grand Moff Tarkin", correct: true },
-         ] 
+    {
+        question: "Who was the commander on the first Death Star?",
+        answers: [
+            { text: "Orson Callan Krennic", correct: false },
+            { text: "General Grievous", correct: false },
+            { text: "Finis Valorum", correct: false },
+            { text: "Grand Moff Tarkin", correct: true },
+        ]
     },
-    { 
+    {
         question: "Whose sword did Obi-Wan Kenobi use to win the fight with Darth Maul in Episode I - The Phantom Menace?",
-        answers: [ 
-        { text: "His own", correct: false }, 
-        { text: "Qui-Gon's", correct: true },
-        { text: "Mace Windu's", correct: false }, 
-        { text: "Darth Maul's", correct: false },
-         ] 
-        },
-        
-        { 
+        answers: [
+            { text: "His own", correct: false },
+            { text: "Qui-Gon's", correct: true },
+            { text: "Mace Windu's", correct: false },
+            { text: "Darth Maul's", correct: false },
+        ]
+    },
+
+    {
         question: "How many years did the clone wars last?",
-        answers: [ 
-        { text: "11 years", correct: false }, 
-        { text: "6 years", correct: false },
-        { text: "9 years", correct: false }, 
-        { text: "3 years", correct: true },
-         ] 
-        },
-        
-        
-        { 
+        answers: [
+            { text: "11 years", correct: false },
+            { text: "6 years", correct: false },
+            { text: "9 years", correct: false },
+            { text: "3 years", correct: true },
+        ]
+    },
+
+
+    {
         question: "What planet did Luke Skywalker go to in order to find Yoda?",
-        answers: [ 
-        { text: "Endor", correct: false }, 
-        { text: "Alderaan", correct: false },
-        { text: "Dagobah", correct: true }, 
-        { text: "Yavin 4", correct: false },
-         ] 
-        },
-            
-        { 
-        question: "Who was the leader of the Gungans during the Battle of Naboo in 'The Phantom Menace'?", 
-        answers:[ 
-        { text: "Captain Tarpals", correct: false }, 
-        { text: "Boss Nass", correct: true }, 
-        { text: "Jar Jar Binks", correct: false },
-        { text: "Otoh Gunga", correct: false }, 
+        answers: [
+            { text: "Endor", correct: false },
+            { text: "Alderaan", correct: false },
+            { text: "Dagobah", correct: true },
+            { text: "Yavin 4", correct: false },
         ]
-        },
-            
-        { 
-        question: "What is the name of the gas giant planet where the Clone Army was created?", 
-        answers: [ 
-        { text: "Mustafar", correct: false }, 
-        { text: "Geonosis", correct: false }, 
-        { text: "Kamino", correct: true }, 
-        { text: "Felucia", correct: false }, 
-        ] 
-        },
-            
-        {
-        question: "Which Jedi Master served as the Grand Master of the Jedi Order before Yoda?", 
-        answers: [ 
-        { text: "Mace Windu", correct: false }, 
-        { text: "Plo Koon", correct: false }, 
-        { text: "Ki-Adi-Mundi", correct: false }, 
-        { text: "Nomi Sunrider", correct: true },
+    },
+
+    {
+        question: "Who was the leader of the Gungans during the Battle of Naboo in 'The Phantom Menace'?",
+        answers: [
+            { text: "Captain Tarpals", correct: false },
+            { text: "Boss Nass", correct: true },
+            { text: "Jar Jar Binks", correct: false },
+            { text: "Otoh Gunga", correct: false },
         ]
-        },
-            
-        { 
-        question: "In 'Return of the Jedi,' what is the name of the criminal organization led by Jabba the Hutt?", 
-        answers: [ 
-        { text: "Rebel Alliance", correct: false }, 
-        { text: "Galactic Empire", correct: false }, 
-        { text: "The Hutts", correct: false }, 
-        { text: "Black Sun", correct: true }, 
-        ] 
-        },
-            
-        { 
-        question: "What planet is the forest moon of Endor orbiting?", 
-        answers: [ 
-        { text: "Tatooine", correct: false }, 
-        { text: "Yavin", correct: false }, 
-        { text: "Alderaan", correct: false }, 
-        { text: "Sullust", correct: true }, 
-        ] 
-         },
+    },
+
+    {
+        question: "What is the name of the gas giant planet where the Clone Army was created?",
+        answers: [
+            { text: "Mustafar", correct: false },
+            { text: "Geonosis", correct: false },
+            { text: "Kamino", correct: true },
+            { text: "Felucia", correct: false },
+        ]
+    },
+
+    {
+        question: "Which Jedi Master served as the Grand Master of the Jedi Order before Yoda?",
+        answers: [
+            { text: "Mace Windu", correct: false },
+            { text: "Plo Koon", correct: false },
+            { text: "Ki-Adi-Mundi", correct: false },
+            { text: "Nomi Sunrider", correct: true },
+        ]
+    },
+
+    {
+        question: "In 'Return of the Jedi,' what is the name of the criminal organization led by Jabba the Hutt?",
+        answers: [
+            { text: "Rebel Alliance", correct: false },
+            { text: "Galactic Empire", correct: false },
+            { text: "The Hutts", correct: false },
+            { text: "Black Sun", correct: true },
+        ]
+    },
+
+    {
+        question: "What planet is the forest moon of Endor orbiting?",
+        answers: [
+            { text: "Tatooine", correct: false },
+            { text: "Yavin", correct: false },
+            { text: "Alderaan", correct: false },
+            { text: "Sullust", correct: true },
+        ]
+    },
 ];
 
 /**
@@ -451,12 +451,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Handles click for "Next Question" button.
     nextQuestionButton.addEventListener('click', nextQuestion);
-    
+
     /* 
     Event listener for retry quiz button. Calls resetquiz function. 
     Hides result area and retry button
     */
-    retryButton.addEventListener('click', function() {
+    retryButton.addEventListener('click', function () {
         restartQuiz()
         resultArea.classList.add('hide')
         retryButton.classList.add('hide')
