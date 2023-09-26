@@ -50,6 +50,7 @@ A home page with a welcome text, with a fun and challenging tone. Inviting the u
 The start page contains a logo with the name of the website, which also is a link to the home page. 
 There is a startbutton which starts the quiz and plays a sound of a lightsaber.
 At the bottom right there is a footer inviting the user to share the quiz with a link on social media and challenge their friends. 
+
 ![start page with welcome text](documentation/screenshots/welcome_text.PNG)
 
 ### Quiz
@@ -57,10 +58,12 @@ At the bottom right there is a footer inviting the user to share the quiz with a
 Once starting the quiz there is a game area, consistent with the design of the welcome screen. The game area contains a question counter at the top which lets the user know which question they are on and how many are left. As well as the question it self, with 4 answer buttons below. The questions displayed to the user are randomized, so that it does not show the same ones everytime the user starts the quiz. 
 
 Once answered the button highlights the correct answer in green and if the user answered incorrectly, it shows that answer in red. Once the user has answered the answer buttons are disabled. There is also a button below for proceeding to the next question.
+
 ![quiz question with answer buttons](documentation/screenshots/quiz.PNG)
 
 ### End Game 
 Once the user has finished the quiz, after 10 questions. They are presented with their score and a corresponding quote for different scores (0-3, 4-6, 7-9 and 10). A retry button appears which lets the user restart the quiz easily with one click only without having to go to the home page. 
+
 ![end game screen with retry button](documentation/screenshots/end_game.PNG)
 
 ## Future features
@@ -84,6 +87,22 @@ Once the user has finished the quiz, after 10 questions. They are presented with
 
 # Testing
 
+### Manual testing
+All the links on all pages have been checked and are in working order.
+The interactive javascript have been tested and all parts recieving input from the user and giving feedback to the user are working. All the buttons are working. 
+
+The website has been tested on different browsers
+- Google Chrome 116.0.5845.188
+- Mozilla Firefox 117.0.1
+- Microsoft Edge 117.0.2045.41
+
+As well as on mobile devices, though limited to android devices only. The site has also been tested for responsiveness through DevTools in Chrome. 
+
+### Validator
+
+### Bugs 
+
+
 # Deployment
 The site was deployed through GitHub pages. The steps taken to deploy are as follows. 
 - In the GitHub repository for the project, navigate to settings tab, then to pages on the left hand menu. 
@@ -94,3 +113,21 @@ The site was deployed through GitHub pages. The steps taken to deploy are as fol
 Live link to the project here https://morganstenberg.github.io/Star-wars-lore/ 
 
 # Credits
+
+### Photos and sound
+Photos and sound were taken from [Pixabay](https://pixabay.com/)
+[Background image](https://pixabay.com/illustrations/space-stars-star-wars-darck-black-1164579/)
+[Favicon image](https://pixabay.com/illustrations/yoda-teacher-professor-hand-drawn-6566301/)
+[Lightsaber sound](https://pixabay.com/sound-effects/search/lightsaber/)
+
+### Other
+- How to add outline to heading [Codesdope](https://www.codesdope.com/blog/article/adding-outline-to-text-using-css/ )
+- How to make footer stay at bottom [Stackoverflow](https://stackoverflow.com/questions/72340370/how-to-make-footer-stay-at-the-bottom-of-page-despite-theres-not-enough-of-cont)
+- Grid Columns [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/repeat)
+- Calling 2 functions in one event listener [Stackoverflow](https://stackoverflow.com/questions/61666652/how-do-you-add-two-functions-to-one-event-listener)
+- How to play sound on button [Dev.to](https://dev.to/shantanu_jana/how-to-play-sound-on-button-click-in-javascript-3m48)
+- How to sort an array random [Stackdiary](https://stackdiary.com/tutorials/how-to-randomly-shuffle-a-javascript-array/)
+- Inspiration for how to do quiz in Javascript[Web Dev Simplified - Youtube](https://www.youtube.com/watch?v=riDzcEQbX6k)
+- Inspiration for how to do quiz in Javascipt, and for functions showCorrectAnswer and resetQuestion [Greatstack - Youtube](https://www.youtube.com/watch?v=PBcqGxrr9g8)
+- Questions for quiz [Quizexpo Star Wars quiz](https://www.quizexpo.com/star-wars-trivia-quiz/)
+- Questions for quiz [Fandom - Star Wars](https://starwars.fandom.com/wiki/Main_Page)
