@@ -1,7 +1,7 @@
 # Star Wars Lore
 Star Wars Lore is a javascript quiz, created to be fun and engaging to fans of the Star Wars universe. It is designed with the classic Star Wars colors and to be used on your own or to challenge friends for who can get the best score. The application is interactive and easy to use, with tough questions that can either prove you are a master of Star Wars knowledge or help you increase your knowledge! 
 
-![Mockup showing responsiveness](documentation/starwarslore_devices.PNG)
+![Mockup showing responsiveness](documentation/mockup_responsive_devices.PNG)
 
 ## Table of contents
 
@@ -124,9 +124,9 @@ Live link to the project here https://morganstenberg.github.io/Star-wars-lore/
 
 ### Photos and sound
 Photos and sound were taken from [Pixabay](https://pixabay.com/)
-[Background image](https://pixabay.com/illustrations/space-stars-star-wars-darck-black-1164579/)
-[Favicon image](https://pixabay.com/illustrations/yoda-teacher-professor-hand-drawn-6566301/)
-[Lightsaber sound](https://pixabay.com/sound-effects/search/lightsaber/)
+- [Background image](https://pixabay.com/illustrations/space-stars-star-wars-darck-black-1164579/)
+- [Favicon image](https://pixabay.com/illustrations/yoda-teacher-professor-hand-drawn-6566301/)
+- [Lightsaber sound](https://pixabay.com/sound-effects/search/lightsaber/)
 
 ### Other
 - How to add outline to heading [Codesdope](https://www.codesdope.com/blog/article/adding-outline-to-text-using-css/ )
