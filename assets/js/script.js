@@ -25,162 +25,6 @@ let score = 0;
 let numberOfQuestion = 0;
 let randomizedQuestions; 
 
-/** 
- * Starts the quiz itself, hides welcome text and start button.
- * Calls displayQuestion function and randomizes the questions, 
- * credit for using sort method to randomize: 
- * https://stackdiary.com/tutorials/how-to-randomly-shuffle-a-javascript-array/
- */
-function startQuiz() {
-    welcomeText.classList.add('hide');
-    startButton.classList.add('hide');
-    gameArea.classList.remove('hide');
-    currentQuestionIndex = 0;
-    score = 0;
-    randomizedQuestions = questions.sort(() => Math.random() - 0.5);
-    playSound();
-    displayQuestion();
-
-}
-
-// Plays sound when starting quiz
-function playSound() {
-    startSound.play();
-}
-
-/**
- * Gets a question and corresponding answers from question array. 
- * Inserts question and creates answer buttons. Buttons listens for click
- * and calls function for selecting answer.
- *  */
-function displayQuestion() {
-    let currentQuestion = randomizedQuestions[currentQuestionIndex];
-
-    questionElement.textContent = currentQuestion.question;
-
-    numberOfQuestion = currentQuestionIndex + 1;
-    questionCounter.textContent = `Question ${numberOfQuestion} of ${maxQuestion}`;
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add('btn-answer');
-        answerButtons.appendChild(button);
-        button.addEventListener("click", onUserSelection);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-    });
-}
-
-/** 
- * Checks if answer is correct, increments score and total number of questions. 
- * Calls function to show correct answer and disable answer buttons. 
-*/
-function onUserSelection(event) {
-    const selectedBtn = event.target;
-    const correctAnswer = selectedBtn.dataset.correct;
-    if (correctAnswer) {
-        score++;
-        scoreCount.textContent = " " + score;
-        selectedBtn.classList.add('correct');
-    } else {
-        selectedBtn.classList.add('incorrect');
-    }
-    nextQuestionButton.classList.remove('hide');
-    showCorrectAnswer();
-}
-
-
-/**
- * Shows correct answer to user if wrong answer is picked,
- * disables buttons after user has answered.
- * Credit to https://www.youtube.com/watch?v=PBcqGxrr9g8 
- */
-function showCorrectAnswer() {
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
-}
-
-/**
- * Calls the right functions for resetting game area and 
- * displaying next question. Increments question index.
- * Calls function to end quiz if max nr of question has been reached.
- */
-function nextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < maxQuestion) {
-        resetQuestion();
-        displayQuestion();
-    } else {
-        endQuiz();
-    }
-}
-
-/**
- * Resets game area for next question. Removes answer buttons from previous question 
- * and hides the next button. 
- * Credit for how to remove answer buttons from https://www.youtube.com/watch?v=PBcqGxrr9g8
- */
-function resetQuestion() {
-    nextQuestionButton.classList.add('hide');
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
-    }
-
-}
-
-/**
- * Ends quiz after max number of question has been reached.
- * Calls function to display result to user
- */
-function endQuiz() {
-    gameArea.classList.add('hide');
-    nextQuestionButton.classList.add('hide');
-    resultArea.classList.remove('hide');
-    retryButton.classList.remove('hide');
-    renderResult();
-}
-
-/** 
- * Renders result to user. Displays different texts depending on range of score
- */
-function renderResult() {
-    resultScore.textContent = `You scored ${score} of ${maxQuestion}`;
-
-    // calculating the score range
-    const scorePercentage = (score / maxQuestion) * 100;
-
-    if (score === maxQuestion) {
-        resultText.textContent = bestResultText;
-    } else if (scorePercentage >= 70 && scorePercentage < 100) {
-        resultText.textContent = goodResultText;
-    } else if (scorePercentage >= 40 && scorePercentage < 70) {
-        resultText.textContent = mediumResultText;
-    } else if (scorePercentage < 40) {
-        resultText.textContent = worstResultText;
-    }
-}
-
-/**
- * Restarts the quiz after user presses retry button. 
- * Resets score, question index and question number. 
- * Removes answer buttons and result text. Calls start quiz function. 
- */
-function restartQuiz() {
-    score = 0;
-    currentQuestionIndex = 0;
-    scoreCount.textContent = " " + score;
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
-    }
-    startQuiz();
-}
-
-
 // Questions for the quiz
 const questions = [
     {
@@ -436,7 +280,192 @@ const questions = [
             { text: "Sullust", correct: true },
         ]
     },
+
+    {
+        question: "What is the name of the ancient Sith lightsaber technique that involves using two lightsabers, one for offense and one for defense?",
+        answers: [
+            { text: "Djem So", correct: false },
+            { text: "Juyo", correct: false },
+            { text: "Jar'Kai", correct: true },
+            { text: "Shien/Djem So", correct: false },
+        ]
+    },
+
+    {
+        question: "What is the name of the Clone Trooper who received special training from ARC trooper Alpha-17 and served under Jedi General Obi-Wan Kenobi?",
+        answers: [
+            { text: "CC-2224 (Cody)", correct: true },
+            { text: "CT-5555 (Fives)", correct: false },
+            { text: "CT-7567 (Rex)", correct: false },
+            { text: "CT-1409 (Echo)", correct: false },
+        ]
+    },
+
+    {
+        question: "What is the name of the giant space slug-like creature that Han Solo's Millennium Falcon encounters in 'The Empire Strikes Back'?",
+        answers: [
+            { text: "Exogorth", correct: true },
+            { text: "Sarlacc", correct: false },
+            { text: "Rancor", correct: false },
+            { text: "Dianoga", correct: false },
+        ]
+    },
 ];
+
+/** 
+ * Starts the quiz itself, hides welcome text and start button.
+ * Calls displayQuestion function and randomizes the questions, 
+ * credit for using sort method to randomize: 
+ * https://stackdiary.com/tutorials/how-to-randomly-shuffle-a-javascript-array/
+ */
+function startQuiz() {
+    welcomeText.classList.add('hide');
+    startButton.classList.add('hide');
+    gameArea.classList.remove('hide');
+    currentQuestionIndex = 0;
+    score = 0;
+    randomizedQuestions = questions.sort(() => Math.random() - 0.5);
+    playSound();
+    displayQuestion();
+
+}
+
+// Plays sound when starting quiz
+function playSound() {
+    startSound.play();
+}
+
+/**
+ * Gets a question and corresponding answers from question array. 
+ * Inserts question and creates answer buttons. Buttons listens for click
+ * and calls function for selecting answer.
+ *  */
+function displayQuestion() {
+    let currentQuestion = randomizedQuestions[currentQuestionIndex];
+
+    questionElement.textContent = currentQuestion.question;
+
+    numberOfQuestion = currentQuestionIndex + 1;
+    questionCounter.textContent = `Question ${numberOfQuestion} of ${maxQuestion}`;
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add('btn-answer');
+        answerButtons.appendChild(button);
+        button.addEventListener("click", onUserSelection);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+    });
+}
+
+/** 
+ * Checks if answer is correct, increments score and total number of questions. 
+ * Calls function to show correct answer and disable answer buttons. 
+*/
+function onUserSelection(event) {
+    const selectedBtn = event.target;
+    const correctAnswer = selectedBtn.dataset.correct;
+    if (correctAnswer) {
+        score++;
+        scoreCount.textContent = " " + score;
+        selectedBtn.classList.add('correct');
+    } else {
+        selectedBtn.classList.add('incorrect');
+    }
+    nextQuestionButton.classList.remove('hide');
+    showCorrectAnswer();
+}
+
+
+/**
+ * Shows correct answer to user if wrong answer is picked,
+ * disables buttons after user has answered.
+ * Credit to https://www.youtube.com/watch?v=PBcqGxrr9g8 
+ */
+function showCorrectAnswer() {
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+}
+
+/**
+ * Calls the right functions for resetting game area and 
+ * displaying next question. Increments question index.
+ * Calls function to end quiz if max nr of question has been reached.
+ */
+function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < maxQuestion) {
+        resetQuestion();
+        displayQuestion();
+    } else {
+        endQuiz();
+    }
+}
+
+/**
+ * Resets game area for next question. Removes answer buttons from previous question 
+ * and hides the next button. 
+ * Credit for how to remove answer buttons from https://www.youtube.com/watch?v=PBcqGxrr9g8
+ */
+function resetQuestion() {
+    nextQuestionButton.classList.add('hide');
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+
+}
+
+/**
+ * Ends quiz after max number of question has been reached.
+ * Calls function to display result to user
+ */
+function endQuiz() {
+    gameArea.classList.add('hide');
+    nextQuestionButton.classList.add('hide');
+    resultArea.classList.remove('hide');
+    retryButton.classList.remove('hide');
+    renderResult();
+}
+
+/** 
+ * Renders result to user. Displays different texts depending on range of score
+ */
+function renderResult() {
+    resultScore.textContent = `You scored ${score} of ${maxQuestion}`;
+
+    // calculating the score range
+    const scorePercentage = (score / maxQuestion) * 100;
+
+    if (score === maxQuestion) {
+        resultText.textContent = bestResultText;
+    } else if (scorePercentage >= 70 && scorePercentage < 100) {
+        resultText.textContent = goodResultText;
+    } else if (scorePercentage >= 40 && scorePercentage < 70) {
+        resultText.textContent = mediumResultText;
+    } else if (scorePercentage < 40) {
+        resultText.textContent = worstResultText;
+    }
+}
+
+/**
+ * Restarts the quiz after user presses retry button. 
+ * Resets score, question index and question number. 
+ * Removes answer buttons and result text. Calls start quiz function. 
+ */
+function restartQuiz() {
+    score = 0;
+    currentQuestionIndex = 0;
+    scoreCount.textContent = " " + score;
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+    startQuiz();
+}
 
 /**
  * Waits for page to load before adding eventlisteners

@@ -139,3 +139,4 @@ Photos and sound were taken from [Pixabay](https://pixabay.com/)
 - Inspiration for how to do quiz in Javascript, and for functions showCorrectAnswer and resetQuestion [Greatstack - Youtube](https://www.youtube.com/watch?v=PBcqGxrr9g8)
 - Questions for quiz [Quizexpo Star Wars quiz](https://www.quizexpo.com/star-wars-trivia-quiz/)
 - Questions for quiz [Fandom - Star Wars](https://starwars.fandom.com/wiki/Main_Page)
+- Questions for quiz - Additional questions were generated with the help of ChatGPT. 
