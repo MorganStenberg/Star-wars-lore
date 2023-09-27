@@ -45,7 +45,7 @@ body {
     margin: 0px 5px;
 } 
 
-/*Styling for main content area, for welcome text, gamea area and results */
+/*Styling for main content area, for welcome text, game area and results */
 .main-content-area {
     background-color: #000000;
     width: 600px;
@@ -58,18 +58,7 @@ body {
     text-align: center;
 }
 
-/* Styling for welcome text 
-#welcome-text {
-    text-align: center;
-    margin: 10px auto;
-    padding: 10px 0;
-    max-width: 600px;
-    background-color: #000000;
-    border: 5px solid;
-    border-radius: 5px;
-    box-shadow: 0 0 5px 2px;
-} */ 
-
+/*Styling for the welcome text paragraphs and heading - to give more air between elements */
 #welcome-text p {
     padding-top: 10px;
 }
@@ -79,39 +68,13 @@ body {
     padding-bottom: 10px;
 }
 
-/* Styling for the game area container  
-#game-area {
-    background-color: #000000;
-    width: 600px;
-    max-width: 90%;
-    margin: 10px auto;
-    border: 5px solid;
-    border-radius: 5px;
-    box-shadow: 0 0 5px 2px;
-} */
-
-/*Styling for the questions - to give more air between elements */
-#questions {
+/*Styling for the questions - to give more air between elements and margin */
+#question.content {
     padding-top: 10px;
+    margin: 0 5px;
 }
 
-#question-counter {
-    padding-top: 10px;
-}
-
-/* Styling for the result area 
-#result-area {
-    background-color: #000000;
-    width: 600px;
-    max-width: 90%;
-    margin: 10px auto;
-    border: 5px solid;
-    border-radius: 5px;
-    box-shadow: 0 0 5px 2px;
-    padding: 10px 0;
-} */
-
-/*Styling for the result text - to give more air between elements */
+/*Styling for the result text - to give more air between elements paragraphs */
 .result-content {
     padding: 10px 0; 
 }
@@ -215,14 +178,6 @@ footer {
     #header {
         font-size: 2rem;
     }
-/*
-    #welcome-text {
-        max-width: 720px;
-    }
-
-    #game-area {
-        width: 720px;
-    }*/
 
     .main-content-area {
         width: 720px;
