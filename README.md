@@ -1,7 +1,7 @@
 # Star Wars Lore
 Star Wars Lore is a javascript quiz, created to be fun and engaging to fans of the Star Wars universe. It is designed with the classic Star Wars colors and to be used on your own or to challenge friends for who can get the best score. The application is interactive and easy to use, with tough questions that can either prove you are a master of Star Wars knowledge or help you increase your knowledge! 
 
-![Mockup showing responsiveness](documentation/mockup_responsive_devices.PNG)
+![Mockup showing responsiveness](documentation/responsivness_devices.PNG)
 
 ## Table of contents
 
